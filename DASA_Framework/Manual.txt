@@ -1,0 +1,42 @@
+#######################################
+# Co-simulation Framework Version 3.0 #
+# Date: 1-7-2018                      #
+# Operation manual                    #
+#######################################
+
+# How to start simulation?
+1. open a v-rep scene in folder 'V-REP scene'
+2. open a framework matlab code (in this framework, 'ReportResult_DifferParameters.m' or 'ReportResult_SwitchedControl.m') in folder 'mexopencv-master'.
+3. click 'Start' in matlab toolbar, then the whole framework simulation will be executed automatically. When the simulation finishes, the result will be plotted.
+
+### Files description ###
+
+# Folder: mexopencv-master
+1. The file 'StraightTestTrack.mat' and '50mCurveTrackdata.mat' are the data for standard vehicle trajectory, they will be loaded at the initialization phase of simulation.
+2. The code 'Calculation_VS_Framework.m' is to compare the difference between the framework and MATLAB based calculation.
+3. The code 'LateralDeviation.m' is for look-ahead lateral deviation calculation. It will be called by framwork code during simulation.
+4. The code 'control_model' is the control model configuration of switched controller. It will be called when 'ReportResult_SwitchedControl.m' is executed.
+5. For varying sample period of worst-based controller case and switched-based controller case QoC result measurement (SSE calculation), in order to keep the measurement fair, the data volume has to be equal.
+   Code 'SSE_for_Sample_SW.m' is for result measurement in such cases.
+
+# Folder: Data
+This folder contains the data for all controller test. All the data are saved as .mat files.
+To reuse these data, you need use 'load' in MATLAB. Please check the 'load' in MATLAB help file.
+When you load the data for one test, copy the 'plot the results' part in framework code with appropriate lengend into MATLAB 'Command Window', then the result could be plotted again.
+
+# Folder: QR-matix_Check
+This folder stores MATLAB code for CQLF analysis for switched control system stability. 'yalmip' and 'SDPT3' are needed to be pre-installed.
+1. The code 'control_model2' is the swtiched model setting to be done CQLF analysis. You can change model configuration.
+2. The code 'cqlf_existence_clean' is for control model CQLF. Only the CQLF solution exists the overall switched control system is stable.
+
+# Folder: V-REP scene
+This folder contains scenatios of two lane keeping test situations: small straight lane bias situation and entering curve situation.
+
+# Folder 3dsMax_model
+This folder contains the built curve lane model and centerline model, the exported .obj files and the textures used for road and background field are stored in folder '3dsMax_model'.
+1. '1to10_curve_track.max' is the curve model file.
+2. 'obj file' folder contains the exported .obj files of curve lane model and curve lane centeriline model.
+3. 'texture' folder contains the texture for road and field.
+4. The straight lane could be built by using V-REP inner shape with road texture.
+5. How to build the model and export the model as .obj file, you could refer to 3dsMax 2018 tutorial: http://help.autodesk.com/view/3DSMAX/2018/ENU/?guid=GUID-68FFEEDA-3801-444E-B450-942E03A7523D
+6. How to import the .obj file and built the straight lane with road texture in V-REP, you could refer to V-REP user manual: http://www.coppeliarobotics.com/helpFiles/
