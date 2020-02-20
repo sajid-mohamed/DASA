@@ -1,4 +1,4 @@
-# Update: This is no longer supported
+# Update: Unfortunately, this is no longer supported.
 
 The latest version of this tool can be found [here](https://github.com/sajid-mohamed/cppVrepLKAS).
 If you are interested in more research along this direction: [look here](http://www.es.ele.tue.nl/~dgoswami/test/).
