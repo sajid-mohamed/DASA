@@ -1,4 +1,6 @@
-# Update: Unfortunately, this is no longer supported.
+# DASA Framework
+
+Update: Unfortunately, the support for this framework is limited.
 
 The latest version of this tool can be found [here](https://github.com/sajid-mohamed/cppVrepLKAS).
 
@@ -51,5 +53,8 @@ the API.
 
 # AUTHOR CONTACT INFORMATION:
    Sajid Mohamed <s.mohamed@tue.nl>
+   
+ # License
+ This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 
